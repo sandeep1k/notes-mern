@@ -21,7 +21,7 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser()); // for parsing cookies
 app.use(cors()); // to enable CORS
-app.use(morgan("dev"));
+app.use(morgan("dev")); // HTTP request logger
 
 // Routes
 app.use("/api/v1/users", userRoutes);
@@ -30,4 +30,5 @@ app.use("/api/v1/notes", noteRoutes);
 // Error Handling Middleware - This should be after all the routes
 app.use(errorHandler);
 
+// Exporting the app for further use, e.g., in server.js
 export default app;
